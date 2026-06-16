@@ -1,0 +1,1304 @@
+/* ==========================================================================
+   زاد الملوك - نظام التصميم والهوية البصرية الفاخرة
+   Design System: Dark Luxury Theme (Black + Gold + Cream)
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --bg-primary: #0F0F0F;
+    --bg-surface: #171717;
+    --bg-surface-secondary: #222222;
+    --color-gold: #C9A35A;
+    --color-gold-hover: #D8B26A;
+    --color-gold-light: rgba(201, 163, 90, 0.1);
+    --color-gold-border: rgba(201, 163, 90, 0.3);
+    --color-cream: #F7F3EA;
+    --color-cream-muted: #D1CDC4;
+    
+    /* Typography & Hierarchy */
+    --font-primary: 'Cairo', sans-serif;
+    
+    /* System Colors */
+    --color-error: #E53E3E;
+    --color-error-bg: rgba(229, 62, 62, 0.1);
+    --color-success: #38A169;
+    --color-success-bg: rgba(56, 161, 105, 0.1);
+    
+    /* Layout & Shadows */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-full: 9999px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.8);
+    --shadow-gold: 0 4px 15px rgba(201, 163, 90, 0.15);
+    
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   1. Reset & Global Styles
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    height: -webkit-fill-available;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-primary);
+    color: var(--color-cream);
+    direction: rtl;
+    text-align: right;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-gold-border);
+    border-radius: var(--border-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold);
+}
+
+/* App Container (Center constraints for large screens) */
+.app-container {
+    width: 100%;
+    max-width: 600px; /* Perfect sizing for mobile QR access */
+    margin: 0 auto;
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Helper Utilities */
+.gold-text {
+    color: var(--color-gold) !important;
+}
+
+/* ==========================================================================
+   2. Header & Branding
+   ========================================================================== */
+.main-header {
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    background: linear-gradient(to bottom, #171717 0%, #0F0F0F 100%);
+    border-bottom: 1px solid var(--color-gold-border);
+    text-align: center;
+    position: relative;
+}
+
+.main-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.brand-logo {
+    max-height: 110px;
+    width: auto;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.7));
+}
+
+.text-logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--color-gold);
+    letter-spacing: 1px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.restaurant-info {
+    margin-bottom: 1.5rem;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.info-badges {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.info-badge {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--color-gold-border);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--border-radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--color-cream-muted);
+}
+
+.info-badge .icon {
+    width: 14px;
+    height: 14px;
+    stroke: var(--color-gold);
+}
+
+/* ==========================================================================
+   3. Search Wrapper
+   ========================================================================== */
+.search-wrapper {
+    margin-top: 1.5rem;
+}
+
+.search-bar {
+    position: relative;
+    width: 100%;
+}
+
+.search-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-gold);
+    pointer-events: none;
+}
+
+.search-bar input {
+    width: 100%;
+    background-color: var(--bg-surface-secondary);
+    border: 1px solid var(--color-gold-border);
+    border-radius: var(--border-radius-md);
+    padding: 0.9rem 3rem 0.9rem 1rem;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    color: var(--color-cream);
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.search-bar input:focus {
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-gold);
+    background-color: #282828;
+}
+
+.search-bar input::placeholder {
+    color: #6C6C6C;
+}
+
+/* ==========================================================================
+   4. Sticky Category Nav
+   ========================================================================== */
+.category-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-gold-border);
+}
+
+.category-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0.8rem 1rem;
+    gap: 0.6rem;
+    scrollbar-width: none; /* Firefox */
+}
+
+.category-scroll::-webkit-scrollbar {
+    display: none; /* Safari / Chrome */
+}
+
+.category-btn {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--color-gold-border);
+    color: var(--color-cream-muted);
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--border-radius-full);
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.category-btn:active, .category-btn.active {
+    background-color: var(--color-gold);
+    color: var(--bg-primary);
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-gold);
+}
+
+/* ==========================================================================
+   5. Product Feed & Card Layouts
+   ========================================================================== */
+.main-content {
+    flex: 1;
+    padding: 1.5rem 1rem;
+}
+
+.menu-section {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 70px; /* Ensures space above section header when scrolled into view */
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-cream);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 2px;
+    background-color: var(--color-gold);
+    border-radius: var(--border-radius-full);
+}
+
+.star-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--color-gold);
+    color: var(--color-gold);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Premium Card Architecture (Typography driven - No Images) */
+.product-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--color-gold-border);
+    border-radius: var(--border-radius-md);
+    padding: 1.2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 120px;
+    transition: var(--transition-fast);
+    overflow: hidden;
+}
+
+/* Gold Traditional Side Border for Premium Vibe */
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--color-gold);
+    transform: scaleY(0);
+    transition: var(--transition-fast);
+    transform-origin: top;
+}
+
+.product-card:hover, .product-card:active {
+    border-color: var(--color-gold);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-card:hover::before, .product-card:active::before {
+    transform: scaleY(1);
+}
+
+/* Card Info */
+.product-info-wrapper {
+    margin-bottom: 0.8rem;
+}
+
+.product-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-cream);
+    line-height: 1.4;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-gold);
+    white-space: nowrap;
+}
+
+.product-desc {
+    font-size: 0.85rem;
+    color: var(--color-cream-muted);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Card Controls Block */
+.product-action-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.8rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.action-btn-container {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Variant Chips Selector (Custom Premium Toggle Buttons) */
+.variant-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.variant-chip {
+    background-color: transparent;
+    border: 1.5px solid var(--color-gold-border);
+    color: var(--color-cream-muted);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--border-radius-full);
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.variant-chip:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+    background-color: var(--color-gold-light);
+}
+
+.variant-chip.active {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    color: var(--bg-primary);
+    box-shadow: 0 2px 8px rgba(201, 163, 90, 0.35);
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    outline: none;
+    border: none;
+    padding: 0.6rem 1.2rem;
+}
+
+.btn-primary {
+    background-color: var(--color-gold);
+    color: var(--bg-primary);
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background-color: var(--color-gold-hover);
+    box-shadow: var(--shadow-gold);
+}
+
+.btn-secondary {
+    background-color: var(--bg-surface-secondary);
+    color: var(--color-cream);
+    border: 1px solid var(--color-gold-border);
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+    background-color: var(--bg-surface);
+    border-color: var(--color-gold);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+}
+
+.btn-outline:hover, .btn-outline:active {
+    background-color: var(--color-gold);
+    color: var(--bg-primary);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--color-gold);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.btn-text:hover {
+    text-decoration: underline;
+}
+
+/* Quick Add Button Modifier */
+.quick-add-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-gold);
+    color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Quantity Controls */
+.qty-controls {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-surface-secondary);
+    border: 1px solid var(--color-gold-border);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+.qty-btn {
+    background: none;
+    border: none;
+    color: var(--color-gold);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.qty-btn:active {
+    background-color: rgba(201, 163, 90, 0.1);
+}
+
+.qty-btn .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.qty-val {
+    width: 30px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-cream);
+}
+
+/* ==========================================================================
+   6. Loading Skeletons
+   ========================================================================== */
+.skeletons-container {
+    padding: 0.5rem 0;
+}
+
+.skeleton-section-title {
+    width: 120px;
+    height: 24px;
+    background-color: var(--bg-surface-secondary);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-card {
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: var(--border-radius-md);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-line {
+    background-color: var(--bg-surface-secondary);
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-line.title {
+    width: 60%;
+    height: 18px;
+    margin-bottom: 0.6rem;
+}
+
+.skeleton-line.desc {
+    width: 85%;
+    height: 12px;
+}
+
+.skeleton-line.price {
+    width: 40px;
+    height: 16px;
+    align-self: flex-end;
+}
+
+/* Shimmer Animation */
+.skeleton-section-title::after,
+.skeleton-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.05) 20%,
+        rgba(255, 255, 255, 0.05) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ==========================================================================
+   7. Empty Search & Cart States
+   ========================================================================== */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: var(--color-cream-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.cart-empty-view {
+    text-align: center;
+    padding: 4rem 1.5rem;
+}
+
+.empty-cart-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+.cart-empty-view .empty-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.cart-empty-view .empty-subtext {
+    color: var(--color-cream-muted);
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   8. Floating Cart FAB
+   ========================================================================== */
+.floating-cart {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 32px);
+    max-width: 568px; /* Stays aligned with app-container margin spacing */
+    z-index: 90;
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.floating-cart.hidden {
+    transform: translate(-50%, 100px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cart-fab-button {
+    width: 100%;
+    background-color: var(--color-gold);
+    border: none;
+    border-radius: var(--border-radius-lg);
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--bg-primary);
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), var(--shadow-gold);
+    font-family: var(--font-primary);
+    font-weight: 800;
+    font-size: 1.05rem;
+    transition: transform var(--transition-fast);
+}
+
+.cart-fab-button:active {
+    transform: scale(0.98);
+}
+
+.cart-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon-wrapper .icon {
+    width: 24px;
+    height: 24px;
+    stroke: var(--bg-primary);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    left: -12px;
+    background-color: var(--color-cream);
+    color: var(--bg-primary);
+    font-size: 0.75rem;
+    font-weight: 800;
+    width: 20px;
+    height: 20px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.cart-fab-text {
+    flex: 1;
+    text-align: right;
+    margin-right: 1.2rem;
+}
+
+.cart-fab-total {
+    background-color: rgba(15, 15, 15, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   9. Drawer & Overlay Layouts (Cart Bottom Sheet)
+   ========================================================================== */
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 200;
+    transition: opacity var(--transition-normal);
+}
+
+.drawer-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.drawer-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100%;
+    max-width: 600px;
+    height: 85vh;
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--color-gold);
+    border-top-left-radius: var(--border-radius-lg);
+    border-top-right-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    z-index: 210;
+    transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.drawer-overlay.hidden .drawer-container {
+    transform: translate(-50%, 100%);
+}
+
+.drawer-header {
+    padding: 1.2rem;
+    border-bottom: 1px solid var(--bg-surface-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drawer-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-cream);
+}
+
+.close-drawer-btn {
+    background: none;
+    border: none;
+    color: var(--color-cream-muted);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-full);
+    transition: var(--transition-fast);
+}
+
+.close-drawer-btn:active {
+    background-color: var(--bg-surface-secondary);
+}
+
+.close-drawer-btn .icon {
+    width: 24px;
+    height: 24px;
+}
+
+.drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Page transitions inside drawer */
+.cart-page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-page.hidden {
+    display: none !important;
+}
+
+/* Cart Item Cards */
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-surface-secondary);
+    border: 1px solid var(--color-gold-border);
+    border-radius: var(--border-radius-md);
+    padding: 0.9rem 1rem;
+    gap: 0.8rem;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-cream);
+}
+
+.cart-item-variant {
+    font-size: 0.75rem;
+    color: var(--color-gold);
+    margin-top: 0.1rem;
+}
+
+.cart-item-price {
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--color-gold);
+    margin-top: 0.3rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: #6C6C6C;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.btn-remove:active {
+    color: var(--color-error);
+}
+
+.btn-remove .icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Cart Footer Block */
+.cart-summary-footer {
+    border-top: 1px solid var(--bg-surface-secondary);
+    padding-top: 1.2rem;
+    margin-top: auto;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.summary-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-cream-muted);
+}
+
+.summary-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-gold);
+}
+
+/* ==========================================================================
+   10. Checkout Form
+   ========================================================================== */
+.checkout-header-actions {
+    margin-bottom: 1.2rem;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-gold);
+}
+
+.form-group label .required {
+    color: var(--color-error);
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: var(--bg-surface-secondary);
+    border: 1px solid var(--color-gold-border);
+    border-radius: var(--border-radius-md);
+    padding: 0.8rem 1rem;
+    color: var(--color-cream);
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    outline: none;
+    transition: var(--transition-fast);
+    width: 100%;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-gold);
+    box-shadow: var(--shadow-gold);
+}
+
+/* Error States */
+.form-group.invalid input,
+.form-group.invalid textarea {
+    border-color: var(--color-error);
+    background-color: rgba(229, 62, 62, 0.02);
+}
+
+.form-group .error-message {
+    color: var(--color-error);
+    font-size: 0.75rem;
+    display: none;
+}
+
+.form-group.invalid .error-message {
+    display: block;
+}
+
+.checkout-summary-box {
+    background-color: var(--bg-surface-secondary);
+    border: 1px solid var(--color-gold-border);
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.checkout-summary-box .summary-row {
+    margin-bottom: 0;
+}
+
+.checkout-summary-box span:first-child {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   11. Custom WhatsApp Selection Modal
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    transition: opacity var(--transition-normal);
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-container {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--color-gold);
+    border-radius: var(--border-radius-lg);
+    width: 100%;
+    max-width: 400px;
+    padding: 1.8rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg), var(--shadow-gold);
+    transform: scale(0.9);
+    transition: transform var(--transition-normal);
+}
+
+.modal-overlay.hidden .modal-container {
+    transform: scale(0.8);
+}
+
+.modal-header h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-gold);
+    margin-bottom: 0.6rem;
+}
+
+.modal-header p {
+    font-size: 0.9rem;
+    color: var(--color-cream-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn-whatsapp-option {
+    padding: 1rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background-color: var(--bg-surface-secondary);
+    border: 1px solid var(--color-gold-border);
+    color: var(--color-cream);
+}
+
+.btn-whatsapp-option:active {
+    background-color: var(--color-gold-light);
+    border-color: var(--color-gold);
+}
+
+.btn-whatsapp-option .icon {
+    width: 20px;
+    height: 20px;
+    fill: #25D366; /* Standard WhatsApp Brand Green */
+}
+
+/* ==========================================================================
+   12. Toast Notification Banner Stack
+   ========================================================================== */
+.toast-container {
+    position: fixed;
+    bottom: 100px; /* Aligned safe above floating cart */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: calc(100% - 32px);
+    max-width: 400px;
+    pointer-events: none;
+}
+
+.toast {
+    background-color: var(--bg-surface-secondary);
+    color: var(--color-cream);
+    border: 1px solid var(--color-gold);
+    padding: 0.8rem 1.2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: center;
+    animation: toastFadeIn var(--transition-fast) forwards, toastFadeOut var(--transition-fast) 2.7s forwards;
+    pointer-events: auto;
+}
+
+@keyframes toastFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastFadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* ==========================================================================
+   13. Back to Top Action
+   ========================================================================== */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 100px;
+    left: 20px;
+    background-color: rgba(23, 23, 23, 0.85);
+    border: 1px solid var(--color-gold-border);
+    color: var(--color-gold);
+    width: 44px;
+    height: 44px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 80;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Specific position alignment shifts depending on screen size */
+@media (min-width: 640px) {
+    .back-to-top-btn {
+        left: calc(50% - 280px); /* Keeps it anchored near left bounds of standard content grid */
+    }
+}
+
+.back-to-top-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.back-to-top-btn:active {
+    background-color: var(--color-gold);
+    color: var(--bg-primary);
+    border-color: var(--color-gold);
+}
+
+.back-to-top-btn .icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================================================================
+   14. Footers
+   ========================================================================== */
+.main-footer {
+    padding: 3rem 1.5rem 6rem 1.5rem; /* Large bottom padding safeguards space for floating cart overlay */
+    background-color: #0B0B0B;
+    border-top: 1px solid var(--bg-surface-secondary);
+    text-align: center;
+}
+
+.main-footer .brand-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.main-footer .footer-address {
+    font-size: 0.8rem;
+    color: var(--color-cream-muted);
+    margin-bottom: 1rem;
+}
+
+.main-footer .copyright {
+    font-size: 0.7rem;
+    color: #555555;
+}
+
+/* ==========================================================================
+   15. Accessibility Focus States & Touch Enhancements
+   ========================================================================== */
+input:focus-visible, 
+textarea:focus-visible, 
+select:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 1px;
+}
+
+/* Prevent double-tap-to-zoom lag on iOS safari */
+button, 
+a, 
+input[type="submit"] {
+    touch-action: manipulation;
+}
