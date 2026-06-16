@@ -14,16 +14,16 @@
     --color-gold-border: rgba(201, 163, 90, 0.3);
     --color-cream: #F7F3EA;
     --color-cream-muted: #D1CDC4;
-    
+
     /* Typography & Hierarchy */
     --font-primary: 'Cairo', sans-serif;
-    
+
     /* System Colors */
     --color-error: #E53E3E;
     --color-error-bg: rgba(229, 62, 62, 0.1);
     --color-success: #38A169;
     --color-success-bg: rgba(56, 161, 105, 0.1);
-    
+
     /* Layout & Shadows */
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
@@ -33,7 +33,7 @@
     --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.6);
     --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.8);
     --shadow-gold: 0 4px 15px rgba(201, 163, 90, 0.15);
-    
+
     /* Transitions */
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -43,7 +43,9 @@
 /* ==========================================================================
    1. Reset & Global Styles
    ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -100,7 +102,8 @@ body {
 /* App Container (Center constraints for large screens) */
 .app-container {
     width: 100%;
-    max-width: 600px; /* Perfect sizing for mobile QR access */
+    max-width: 600px;
+    /* Perfect sizing for mobile QR access */
     margin: 0 auto;
     background-color: var(--bg-primary);
     min-height: 100vh;
@@ -296,11 +299,13 @@ body {
     white-space: nowrap;
     padding: 0.8rem 1rem;
     gap: 0.6rem;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .category-scroll::-webkit-scrollbar {
-    display: none; /* Safari / Chrome */
+    display: none;
+    /* Safari / Chrome */
 }
 
 .category-btn {
@@ -316,7 +321,8 @@ body {
     transition: var(--transition-fast);
 }
 
-.category-btn:active, .category-btn.active {
+.category-btn:active,
+.category-btn.active {
     background-color: var(--color-gold);
     color: var(--bg-primary);
     border-color: var(--color-gold);
@@ -333,7 +339,8 @@ body {
 
 .menu-section {
     margin-bottom: 2.5rem;
-    scroll-margin-top: 70px; /* Ensures space above section header when scrolled into view */
+    scroll-margin-top: 70px;
+    /* Ensures space above section header when scrolled into view */
 }
 
 .section-title {
@@ -424,12 +431,14 @@ body {
     transform-origin: top;
 }
 
-.product-card:hover, .product-card:active {
+.product-card:hover,
+.product-card:active {
     border-color: var(--color-gold);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.product-card:hover::before, .product-card:active::before {
+.product-card:hover::before,
+.product-card:active::before {
     transform: scaleY(1);
 }
 
@@ -540,7 +549,8 @@ body {
     color: var(--bg-primary);
 }
 
-.btn-primary:hover, .btn-primary:active {
+.btn-primary:hover,
+.btn-primary:active {
     background-color: var(--color-gold-hover);
     box-shadow: var(--shadow-gold);
 }
@@ -551,7 +561,8 @@ body {
     border: 1px solid var(--color-gold-border);
 }
 
-.btn-secondary:hover, .btn-secondary:active {
+.btn-secondary:hover,
+.btn-secondary:active {
     background-color: var(--bg-surface);
     border-color: var(--color-gold);
 }
@@ -562,7 +573,8 @@ body {
     color: var(--color-gold);
 }
 
-.btn-outline:hover, .btn-outline:active {
+.btn-outline:hover,
+.btn-outline:active {
     background-color: var(--color-gold);
     color: var(--bg-primary);
 }
@@ -702,13 +714,11 @@ body {
     bottom: 0;
     left: 0;
     transform: translateX(-100%);
-    background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.05) 20%,
-        rgba(255, 255, 255, 0.05) 60%,
-        rgba(255, 255, 255, 0) 100%
-    );
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.05) 20%,
+            rgba(255, 255, 255, 0.05) 60%,
+            rgba(255, 255, 255, 0) 100%);
     animation: shimmer 1.5s infinite;
 }
 
@@ -775,7 +785,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 32px);
-    max-width: 568px; /* Stays aligned with app-container margin spacing */
+    max-width: 568px;
+    /* Stays aligned with app-container margin spacing */
     z-index: 90;
     transition: transform var(--transition-normal), opacity var(--transition-normal);
 }
@@ -1214,7 +1225,8 @@ body {
 .btn-whatsapp-option .icon {
     width: 20px;
     height: 20px;
-    fill: #25D366; /* Standard WhatsApp Brand Green */
+    fill: #25D366;
+    /* Standard WhatsApp Brand Green */
 }
 
 /* ==========================================================================
@@ -1222,7 +1234,8 @@ body {
    ========================================================================== */
 .toast-container {
     position: fixed;
-    bottom: 100px; /* Aligned safe above floating cart */
+    bottom: 100px;
+    /* Aligned safe above floating cart */
     left: 50%;
     transform: translateX(-50%);
     z-index: 400;
@@ -1253,6 +1266,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1293,7 +1307,8 @@ body {
 /* Specific position alignment shifts depending on screen size */
 @media (min-width: 640px) {
     .back-to-top-btn {
-        left: calc(50% - 280px); /* Keeps it anchored near left bounds of standard content grid */
+        left: calc(50% - 280px);
+        /* Keeps it anchored near left bounds of standard content grid */
     }
 }
 
@@ -1317,7 +1332,8 @@ body {
    14. Footers
    ========================================================================== */
 .main-footer {
-    padding: 3rem 1.5rem 6rem 1.5rem; /* Large bottom padding safeguards space for floating cart overlay */
+    padding: 3rem 1.5rem 6rem 1.5rem;
+    /* Large bottom padding safeguards space for floating cart overlay */
     background-color: #0B0B0B;
     border-top: 1px solid var(--bg-surface-secondary);
     text-align: center;
@@ -1344,16 +1360,16 @@ body {
 /* ==========================================================================
    15. Accessibility Focus States & Touch Enhancements
    ========================================================================== */
-input:focus-visible, 
-textarea:focus-visible, 
+input:focus-visible,
+textarea:focus-visible,
 select:focus-visible {
     outline: 2px solid var(--color-gold);
     outline-offset: 1px;
 }
 
 /* Prevent double-tap-to-zoom lag on iOS safari */
-button, 
-a, 
+button,
+a,
 input[type="submit"] {
     touch-action: manipulation;
 }
