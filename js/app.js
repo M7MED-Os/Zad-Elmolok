@@ -41,15 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initAppStyles();
     simulateLoadingState();
     setupEventListeners();
-
-    // Register Service Worker for PWA offline capability
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./service-worker.js')
-                .then(reg => console.log('Service Worker registered successfully.', reg))
-                .catch(err => console.warn('Service Worker registration failed.', err));
-        });
-    }
 });
 
 // Load cart and customer from localStorage
@@ -183,9 +174,13 @@ function renderMenuFeed() {
 
     let html = "";
     MENU_DATA.categories.forEach(cat => {
+        const noteHtml = cat.note
+            ? `<div class="category-note"><span class="category-note-icon">✦</span><span>${cat.note}</span></div>`
+            : "";
         html += `
             <section id="${cat.id}" class="menu-section">
                 <h2 class="section-title">${cat.name}</h2>
+                ${noteHtml}
                 <div class="product-grid">
                     ${cat.items.map(item => renderProductCard(item, cat.id)).join("")}
                 </div>

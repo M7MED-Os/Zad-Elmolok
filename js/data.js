@@ -35,6 +35,37 @@ const MENU_DATA = {
       ]
     },
     {
+      id: "grills",
+      name: "المشويات",
+      note: "اي أوردر بيطلع معاه (رز - عيش - بطاطس - سلطات)",
+      items: [
+        { id: "g1", name: "كيلو كفته", price: 300 },
+        { id: "g2", name: "نص كفته", price: 150 },
+        { id: "g3", name: "ربع كفته", price: 90 },
+        { id: "g4", name: "فرخه مشويه", price: 280 },
+        { id: "g5", name: "نص فرخه مشويه", price: 140 },
+        { id: "g6", name: "ربع فرخه مشويه", price: 85 },
+        { id: "g7", name: "كيلو شيش", price: 320 },
+        { id: "g8", name: "نص شيش", price: 160 },
+        { id: "g9", name: "ربع شيش", price: 90 },
+        { id: "g10", name: "كيلو كباب", price: 550 },
+        { id: "g11", name: "نص كباب", price: 275 },
+        { id: "g12", name: "ربع كباب", price: 150 },
+        { id: "g13", name: "كيلو طرب", price: 400 },
+        { id: "g14", name: "نص طرب", price: 200 },
+        { id: "g15", name: "ربع طرب", price: 100 },
+        { id: "g16", name: "كيلو سجق", price: 270 },
+        { id: "g17", name: "نص سجق", price: 140 },
+        { id: "g18", name: "ربع سجق", price: 80 },
+        { id: "g19", name: "كيلو كبده", price: 300 },
+        { id: "g20", name: "نص كبده", price: 150 },
+        { id: "g21", name: "ربع كبده", price: 80 },
+        { id: "g22", name: "كيلو ممبار", price: 200 },
+        { id: "g23", name: "نص ممبار", price: 100 },
+        { id: "g24", name: "فرد حمام", price: 160 }
+      ]
+    },
+    {
       id: "tagines",
       name: "الطواجن",
       items: [
@@ -60,60 +91,60 @@ const MENU_DATA = {
       id: "sandwiches",
       name: "السندوتشات",
       items: [
-        { 
-          "id": "s1", 
-          "name": "سندوتش كفته", 
+        {
+          "id": "s1",
+          "name": "سندوتش كفته",
           "variants": [
             { "id": "s1-v1", "name": "صغير", "price": 30 },
             { "id": "s1-v2", "name": "وسط", "price": 40 },
             { "id": "s1-v3", "name": "كبير", "price": 50 }
           ]
         },
-        { 
-          "id": "s2", 
-          "name": "سندوتش شيش", 
+        {
+          "id": "s2",
+          "name": "سندوتش شيش",
           "variants": [
             { "id": "s2-v1", "name": "صغير", "price": 40 },
             { "id": "s2-v2", "name": "كبير", "price": 50 }
           ]
         },
-        { 
-          "id": "s3", 
-          "name": "سندوتش حواوشي", 
+        {
+          "id": "s3",
+          "name": "سندوتش حواوشي",
           "variants": [
             { "id": "s3-v1", "name": "صغير", "price": 25 },
             { "id": "s3-v2", "name": "وسط", "price": 35 },
             { "id": "s3-v3", "name": "كبير", "price": 50 }
           ]
         },
-        { 
-          "id": "s4", 
-          "name": "سندوتش سجق", 
+        {
+          "id": "s4",
+          "name": "سندوتش سجق",
           "variants": [
             { "id": "s4-v1", "name": "صغير", "price": 30 },
             { "id": "s4-v2", "name": "وسط", "price": 40 },
             { "id": "s4-v3", "name": "كبير", "price": 50 }
           ]
         },
-        { 
-          "id": "s5", 
-          "name": "سندوتش كباب", 
+        {
+          "id": "s5",
+          "name": "سندوتش كباب",
           "variants": [
             { "id": "s5-v1", "name": "صغير", "price": 60 },
             { "id": "s5-v2", "name": "كبير", "price": 80 }
           ]
         },
-        { 
-          "id": "s6", 
-          "name": "سندوتش طرب", 
+        {
+          "id": "s6",
+          "name": "سندوتش طرب",
           "variants": [
             { "id": "s6-v1", "name": "صغير", "price": 40 },
             { "id": "s6-v2", "name": "كبير", "price": 60 }
           ]
         },
-        { 
-          "id": "s7", 
-          "name": "سندوتش كبده", 
+        {
+          "id": "s7",
+          "name": "سندوتش كبده",
           "variants": [
             { "id": "s7-v1", "name": "صغير", "price": 30 },
             { "id": "s7-v2", "name": "كبير", "price": 40 }
@@ -128,6 +159,7 @@ const MENU_DATA = {
     {
       id: "trays",
       name: "الصواني",
+      note: "تقدر تشكل اي صنية من اختيارك من المنيو",
       items: [
         { "id": "tr1", "name": "صنية الاكّيل", "price": 350, "description": "ربع كفته + ربع فرخه + ربع سجق + ربع شيش" },
         { "id": "tr2", "name": "صنية الملوك", "price": 1400, "description": "4 حمام + كيلو كفته + فرخه + نص ممبار + نص سجق" },
